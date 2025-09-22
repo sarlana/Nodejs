@@ -35,7 +35,7 @@ jobs:
     needs: setup
     steps:
       - name: lint it properly
-        uses: actions/setup-node@v4
+      - uses: actions/setup-node@v4
       - run: npm ci
       
   test:
