@@ -10,7 +10,7 @@ jobs:
   runs-on: ubuntu-latest
   environment: dev
   steps:
-   - name: Print
+   - name: Print test
      run: echo "${{vars.user}}"
  test:
   needs: build
