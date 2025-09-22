@@ -47,15 +47,13 @@ jobs:
       matrix:
         node: [16, 18, 20]
     steps:
-      -name: checkout
-       uses: actions/checkout@v4
-      -name: setup
-      -uses: actions/setup-node@v4
-       with:
-         node-version: ${{ matrix.node }}
-      -run: npm ci
-      -run: npm run lint
-  
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+      - name: Install dependencies
+        run: npm run lint
+
   build:
     name: Build Project
     runs-on: ubuntu-latest
