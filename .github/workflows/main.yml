@@ -14,13 +14,20 @@ jobs:
     runs-on: ubuntu-latest
     steps: 
       - name: checkout code
-        uses: actions/checkout@v5
+        uses: actions/checkout@v4
+      - name: Cache Node Modules 
+        uses: actions/cache@v4
+        with: 
+          path: ~/.npm
+          key: "${{runner.os}}-node-${{ hashFiles('**/package-lock.json')}}"
+          restore-keys: |
+            "${{ runner.os }}-node-}}"
       - name: Setup Node.js
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v4
         with:
           node-version: '18'
       - name: Install dependencies
-        run: npm clean-install
+        run: npm ci
     
   lint:
     name: Lint code
@@ -30,7 +37,7 @@ jobs:
       - name: lint it properly
         uses: actions/setup-node@v4
       - name: run npm
-        run: npm clean-install
+        run: npm ci
       
   test:
     name: run tests on Node ${{ matrix.node }}
