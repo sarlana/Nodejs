@@ -37,7 +37,7 @@ jobs:
   runs-on: ubuntu-latest
   startegy:
     fail-fast: false
-    matrix:
+      matrix:
       node-version: {16. 18, 20]
       os: [ubuntu-latest, windows-latest]
     name: Test (Node ${{matrix.node-version }} on ${{ matrix.os }})
