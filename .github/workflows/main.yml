@@ -33,11 +33,10 @@ jobs:
     name: Lint code
     runs-on: ubuntu-latest
     needs: setup
-
     steps:
-      -name: lint it properly
-      -uses: actions/setup-node@v4
-      -run: npm ci
+      - name: lint it properly
+        uses: actions/setup-node@v4
+      - run: npm ci
       
   test:
     name: run tests on Node ${{ matrix.node }}
