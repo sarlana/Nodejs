@@ -27,7 +27,7 @@ jobs:
         with:
           node-version: '18'
       - name: Install dependencies
-        run: npm@5 ci
+        run: npm ci
     
   lint:
     name: Lint code
@@ -37,7 +37,7 @@ jobs:
       - name: lint it properly
         uses: actions/setup-node@v4
       - name: run npm
-        run: npm@5 ci
+        run: npm ci
       
   test:
     name: run tests on Node ${{ matrix.node }}
