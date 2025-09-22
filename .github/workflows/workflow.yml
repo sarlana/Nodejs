@@ -1,0 +1,28 @@
+name: First Workflow 
+
+
+on:
+ workflow_dispatch:
+
+
+jobs:
+ build:
+  runs-on: ubuntu-latest
+  environment: dev
+  steps:
+   - name: Print
+     run: echo "${{vars.user}}"
+ test:
+  needs: build
+  runs-on: ubuntu-latest
+  environment: test
+  steps:
+   - name: Print
+     run: echo "${{vars.user}}"
+ staging:
+  needs: [build,test]
+  runs-on: ubuntu-latest
+  environment: staging
+  steps:
+   - name: Print
+     run: echo "${{vars.user}}"
