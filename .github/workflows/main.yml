@@ -35,8 +35,9 @@ jobs:
     needs: setup
     steps:
       - name: lint it properly
-      - uses: actions/setup-node@v4
-      - run: npm ci
+        uses: actions/setup-node@v4
+      - name: run npm
+        run: npm ci
       
   test:
     name: run tests on Node ${{ matrix.node }}
